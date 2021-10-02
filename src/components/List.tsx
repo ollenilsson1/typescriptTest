@@ -1,5 +1,5 @@
 import React from "react";
-// Eftersom det är samma statevärden som app.tsx så kan man importera såhär, samma sak som interface under.
+// Eftersom det är exakt samma struktur som IState i app.tsx så kan man importera såhär, samma sak som interface under.
 import {IState as IProps} from "../App";
 
 /* interface IProps {
@@ -14,6 +14,8 @@ import {IState as IProps} from "../App";
 
 const List: React.FC<IProps> = ({people}) => {
 
+
+    // mappar ut people från IProps och returnerar JSX
     const renderList = (): JSX.Element[] => {
         return people.map((person) => {
             return (
@@ -29,6 +31,7 @@ const List: React.FC<IProps> = ({people}) => {
       
         })
     }
+    
 
     return (
         <ul>

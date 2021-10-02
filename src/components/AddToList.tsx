@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {IState as Props} from "../App";
 
+//Eftersom IState inte har med state från app.tsx så behövs en ny interface
 interface IProps {
     people: Props["people"]
     setPeople: React.Dispatch<React.SetStateAction<Props["people"]>>
@@ -9,6 +10,7 @@ interface IProps {
 
 //Använd people och setPeople från IProps i AddToList
 const AddToList: React.FC<IProps> = ({people, setPeople}) => {
+    
 
     const [input, setInput] = useState({
         name: "",
@@ -35,12 +37,13 @@ const AddToList: React.FC<IProps> = ({people, setPeople}) => {
         ) {
             return
         }
-        //Eftersom nummer från input fälten blir string, parseInt för att konvertera till number
+
+        
         setPeople([
-            ...people, 
+            ...people,      // Spara alla befintliga objekt och lägg till ett nytt
             {
                 name: input.name,
-                age: parseInt(input.age),
+                age: parseInt(input.age),   //Eftersom nummer från input fälten blir string, parseInt för att konvertera till number
                 url: input.img,
                 note: input.note
             }

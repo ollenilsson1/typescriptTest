@@ -3,7 +3,7 @@ import './App.css';
 import List from "./components/List";
 import AddToList from './components/AddToList';
 
-
+//Eftersom det kommer vara samma state på alla sidor, export för mindre kod
 export interface IState {
   people: {
     name: string
@@ -15,7 +15,7 @@ export interface IState {
 }
 
 function App() {
-
+  // Använd interface IState och lägg in en hårdkodad
   const [people, setPeople] = useState<IState["people"]>([
     {
       name: "Olle Nilsson",
@@ -26,10 +26,10 @@ function App() {
   ]);
 
   
-  //Skickar peopleState som props, och setPeople för att kunna använda den i AddToList
+  //Skickar people och setPeople som props för att kunna använda dom i List och AddToList
   return (
     <div className="App">
-     <h1>People invited to my Party</h1>
+     <h1>People invited to the Party</h1>
      <List people={people}/>
      <AddToList people={people} setPeople={setPeople}/>
     </div>
